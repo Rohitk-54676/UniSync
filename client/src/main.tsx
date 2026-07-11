@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import useThemeStore from "./store/themeStore";
 import "./index.css";
 import App from "./App";
+import AuthProvider from "./providers/AuthProvider";
 const savedTheme = useThemeStore.getState().theme;
 
 document.documentElement.classList.toggle(
@@ -13,7 +14,9 @@ document.documentElement.classList.toggle(
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+          <App />
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>
 );

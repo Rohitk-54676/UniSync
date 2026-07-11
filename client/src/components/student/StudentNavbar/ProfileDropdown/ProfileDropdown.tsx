@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
-
+import { useAuthStore } from "../../../../store/auth.store";
 import {
   User,
   ChevronDown,
@@ -24,15 +24,20 @@ function ProfileDropdown() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
+  const logout = useAuthStore((state) => state.logout);
+
+  const user = useAuthStore((state) => state.user);
 
   useClickOutside(dropdownRef, () => setOpen(false));
 
   function handleLogout() {
-    localStorage.removeItem("token");
+    logout();
 
     setOpen(false);
 
-    navigate("/login");
+    navigate("/", {
+      replace: true,
+    });
   }
 
   return (
@@ -84,20 +89,20 @@ function ProfileDropdown() {
             <div className="border-b border-gray-200 p-6 dark:border-slate-700">
               <div className="flex items-center gap-4">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-600 text-2xl font-bold text-white">
-                  R
+                  {user?.fullName?.charAt(0).toUpperCase() ?? "U"}
                 </div>
 
                 <div>
                   <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-                    Rohit Kumar
+                    {user?.fullName ?? "User"}
                   </h2>
 
                   <p className="text-sm text-gray-500 dark:text-slate-400">
-                    rohit@example.com
+                    {user?.email ?? ""}
                   </p>
 
                   <span className="mt-2 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-600 dark:bg-indigo-950 dark:text-indigo-400">
-                    Student
+                    {user?.role ?? "Student"}
                   </span>
                 </div>
               </div>

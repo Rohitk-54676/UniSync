@@ -14,37 +14,43 @@ import ToolCard from "../../ui/ToolCard/ToolCard";
 const tools = [
   {
     title: "CGPA Calculator",
-    description: "Calculate your semester and overall CGPA instantly.",
+    description:
+      "Calculate your semester and overall CGPA instantly.",
     icon: GraduationCap,
     path: "/tools/cgpa",
   },
   {
     title: "Attendance Tracker",
-    description: "Track your attendance and predict future percentage.",
+    description:
+      "Track your attendance and predict future percentage.",
     icon: CalendarCheck,
-    path: "",
+    path: "/tools/attendance",
   },
   {
     title: "Campus Events",
-    description: "Explore upcoming university events and workshops.",
+    description:
+      "Explore upcoming university events and workshops.",
     icon: CalendarDays,
     path: "",
   },
   {
     title: "Campus Map",
-    description: "Navigate your campus easily with an interactive map.",
+    description:
+      "Navigate your campus easily with an interactive map.",
     icon: MapPinned,
     path: "",
   },
   {
     title: "Announcements",
-    description: "Stay updated with university notices and news.",
+    description:
+      "Stay updated with university notices and news.",
     icon: Bell,
     path: "",
   },
   {
     title: "AI Study Assistant",
-    description: "Ask questions and get AI-powered study help.",
+    description:
+      "Ask questions and get AI-powered study help.",
     icon: Bot,
     path: "",
   },
@@ -84,7 +90,9 @@ function QuickTools() {
               title={tool.title}
               description={tool.description}
               icon={tool.icon}
-              onClick={() => handleToolClick(tool.path)}
+              onClick={() =>
+                handleToolClick(tool.path)
+              }
             />
           ))}
         </div>

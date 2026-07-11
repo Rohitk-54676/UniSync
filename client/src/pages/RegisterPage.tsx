@@ -1,5 +1,11 @@
-function LandingPage() {
-  return <h1>Register Page</h1>;
+import RegisterForm from "../components/auth/RegisterForm";
+
+function RegisterPage() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-slate-100 dark:bg-slate-950">
+      <RegisterForm />
+    </div>
+  );
 }
 
-export default LandingPage;
+export default RegisterPage;

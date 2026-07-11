@@ -16,7 +16,7 @@ const tools = [
   {
     title: "Attendance",
     icon: CalendarCheck,
-    path: "",
+    path: "/student/attendance",
   },
   {
     title: "Academic Calendar",
@@ -56,8 +56,9 @@ function QuickTools() {
             <button
               key={tool.title}
               type="button"
-              onClick={() => handleToolClick(tool.path)}
-              aria-label={`Open ${tool.title}`}
+              onClick={() =>
+                handleToolClick(tool.path)
+              }
               className={`
                 group
                 rounded-2xl
@@ -73,25 +74,14 @@ function QuickTools() {
                 dark:bg-slate-800
                 ${
                   isAvailable
-                    ? "cursor-pointer hover:-translate-y-1 hover:border-indigo-500 hover:shadow-lg dark:hover:border-indigo-500 dark:hover:bg-slate-800/80"
+                    ? "cursor-pointer hover:-translate-y-1 hover:border-indigo-500 hover:shadow-lg dark:hover:border-indigo-500"
                     : "cursor-default opacity-70"
                 }
               `}
             >
               <Icon
                 size={30}
-                className={`
-                  mb-5
-                  text-indigo-600
-                  transition-transform
-                  duration-300
-                  dark:text-indigo-400
-                  ${
-                    isAvailable
-                      ? "group-hover:scale-110"
-                      : ""
-                  }
-                `}
+                className="mb-5 text-indigo-600 transition-transform duration-300 group-hover:scale-110 dark:text-indigo-400"
               />
 
               <div className="flex items-center justify-between gap-3">
